@@ -57,3 +57,5 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+© 2019 GitHub, Inc.
