@@ -16,6 +16,9 @@ namespace Assets.Scripts
         {
             packets.Add((int)ServerPackets.SWelcomeMessage, DataReceiver.HandleWelcomeMessage);
             packets.Add((int)ServerPackets.SInstantiatePlayer, DataReceiver.HandleInstantiate);
+            packets.Add((int)ServerPackets.SPlayerPos, DataReceiver.HandlePlayerPos);
+            packets.Add((int)ServerPackets.SPlayerDestroy, DataReceiver.HandlePlayerDestroy);
+            packets.Add((int)ServerPackets.SPlayerName, DataReceiver.HandlePlayerName);
         }
 
         public static void HandleData(byte[] data)

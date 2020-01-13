@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -19,7 +20,7 @@ namespace Assets.Scripts
             clientSocket.ReceiveBufferSize = 4096;
             clientSocket.SendBufferSize = 4096;
             recBuffer = new byte[4096 * 2];
-            clientSocket.BeginConnect("127.0.0.1", 5557, new AsyncCallback(ClientConnectCallBack), clientSocket);
+            clientSocket.BeginConnect("192.168.56.1", 28015, new AsyncCallback(ClientConnectCallBack), clientSocket);
         }
 
         private static void ClientConnectCallBack(IAsyncResult result)
@@ -33,7 +34,8 @@ namespace Assets.Scripts
             {
                 clientSocket.NoDelay = true;
                 myStream = clientSocket.GetStream();
-                myStream.BeginRead(recBuffer, 0, 4096 * 2, ReceiveCallBack, null); 
+                myStream.BeginRead(recBuffer, 0, 4096 * 2, ReceiveCallBack, null);
+                DataSender.SendPlayerName(NetworkManager.instance.playerName, NetworkManager.instance.charVal);
             }
         }
 
@@ -62,16 +64,30 @@ namespace Assets.Scripts
 
         public static void SendData(byte[] data)
         {
-            ByteBuffer buffer = new ByteBuffer();
-            buffer.WriteInterger((data.GetUpperBound(0) - data.GetLowerBound(0)) + 1);
-            buffer.WriteBytes(data);
-            myStream.BeginWrite(buffer.ToArray(), 0, buffer.ToArray().Length, null, null);
-            buffer.Dispose();
+            try
+            {
+                ByteBuffer buffer = new ByteBuffer();
+                buffer.WriteInterger((data.GetUpperBound(0) - data.GetLowerBound(0)) + 1);
+                buffer.WriteBytes(data);
+                myStream.BeginWrite(buffer.ToArray(), 0, buffer.ToArray().Length, null, null);
+                buffer.Dispose();
+            }
+            catch
+            {
+                Disconnect();
+            }
         }
 
         public static void Disconnect()
         {
-            clientSocket.Close();
+            try
+            {
+                clientSocket.Close();
+            }
+            catch
+            {
+                Application.Quit();
+            }
         }
     }
 }

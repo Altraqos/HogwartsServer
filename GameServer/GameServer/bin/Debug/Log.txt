@@ -1,0 +1,18 @@
+{ 16:48 } - Starting the server up
+{ 16:48 } - Initializing Packets...
+{ 16:48 } - Server has been started.
+{ 16:48 } - Incoming connection from '192.168.56.1:50754'.
+{ 16:48 } - Creating a new connection, client. ID:  '50754'.
+{ 16:48 } - Connection from '192.168.56.1:50754' has been terminated.
+{ 16:48 } - Incoming connection from '192.168.56.1:50766'.
+{ 16:48 } - Creating a new connection, client. ID:  '50766'.
+{ 16:48 } - Connection from '192.168.56.1:50766' has been terminated.
+{ 16:48 } - Incoming connection from '192.168.56.1:50771'.
+{ 16:48 } - Creating a new connection, client. ID:  '50771'.
+{ 16:48 } - Connection from '192.168.56.1:50771' has been terminated.
+{ 16:48 } - Incoming connection from '192.168.56.1:50778'.
+{ 16:48 } - Creating a new connection, client. ID:  '50778'.
+{ 16:48 } - Connection from '192.168.56.1:50778' has been terminated.
+{ 16:48 } - Connection from '192.168.56.1:50778' has been terminated.
+{ 16:49 } - Incoming connection from '192.168.56.1:50785'.
+{ 16:49 } - Creating a new connection, client. ID:  '50785'.

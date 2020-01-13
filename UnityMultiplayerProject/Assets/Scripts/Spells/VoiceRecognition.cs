@@ -22,7 +22,7 @@ public class VoiceRecognition : MonoBehaviour
     {
         actions.Add("kedavra", AvadaKedavra);
         actions.Add("crucio", Crucio);
-        actions.Add("aguamenti", Aguamenti);
+        actions.Add("aquamenti", Aguamenti);
         actions.Add("alohomora", Alohomora);
         actions.Add("reducto", Reducto);
         kRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
