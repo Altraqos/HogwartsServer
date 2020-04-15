@@ -1,6 +1,0 @@
-C:\Users\wermi\source\repos\GameServer\GameServer\bin\Debug\GameServer.exe.config
-C:\Users\wermi\source\repos\GameServer\GameServer\bin\Debug\GameServer.exe
-C:\Users\wermi\source\repos\GameServer\GameServer\bin\Debug\GameServer.pdb
-C:\Users\wermi\source\repos\GameServer\GameServer\obj\Debug\GameServer.csprojAssemblyReference.cache
-C:\Users\wermi\source\repos\GameServer\GameServer\obj\Debug\GameServer.exe
-C:\Users\wermi\source\repos\GameServer\GameServer\obj\Debug\GameServer.pdb

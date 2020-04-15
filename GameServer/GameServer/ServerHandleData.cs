@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GameServer
 {
@@ -10,19 +11,25 @@ namespace GameServer
         public static void InitializePackets()
         {
             packets.Add((int)ClientPackets.CHelloServer, DataReceiver.HandleHelloServer);
+            WriteToConsole.writeVarData("Added client packet: *CHelloServer*.", ConsoleColor.Magenta);
             packets.Add((int)ClientPackets.CPlayerPos, DataReceiver.HandlePlayerPos);
+            WriteToConsole.writeVarData("Added client packet: *CPlayerPos*.", ConsoleColor.Magenta);
             packets.Add((int)ClientPackets.CPlayerName, DataReceiver.HandlePlayerName);
+            WriteToConsole.writeVarData("Added client packet: *CPlayerName*.", ConsoleColor.Magenta);
+            packets.Add((int)ClientPackets.CEnemyState, DataReceiver.HandleEnemyState);
+            WriteToConsole.writeVarData("Added client packet: *CEnemyState*.", ConsoleColor.Magenta);
+            packets.Add((int)ClientPackets.CAIPos, DataReceiver.HandeAIPos);
+            WriteToConsole.writeVarData("Added client packet: *CAIPos*.", ConsoleColor.Magenta);
+            packets.Add((int)ClientPackets.CChat, DataReceiver.HandleChat);
+            WriteToConsole.writeVarData("Added client packet: *CChat*.", ConsoleColor.Magenta);
         }
 
         public static void HandleData(int connectionID, byte[] data)
         {
             byte[] buffer = (byte[])data.Clone();
             int pLength = 0;
-
             if (ClientManager.client[connectionID].buffer == null)
-            {
                 ClientManager.client[connectionID].buffer = new ByteBuffer();
-            }
             ClientManager.client[connectionID].buffer.WriteBytes(buffer);
             if (ClientManager.client[connectionID].buffer.Count() == 0)
             {
@@ -59,9 +66,7 @@ namespace GameServer
                 }
             }
             if (pLength <= 1)
-            {
                 ClientManager.client[connectionID].buffer.Clear();
-            }
         }
 
         private static void HandleDataPackets(int connectionID, byte[] data)
@@ -72,9 +77,7 @@ namespace GameServer
             int packetID = buffer.ReadInterger();
             buffer.Dispose();
             if (packets.TryGetValue(packetID, out Packet packet))
-            {
                 packet.Invoke(connectionID, data);
-            }
         }
     }
 }

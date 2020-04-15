@@ -9,7 +9,7 @@ using UnityEngine.Windows.Speech;
 public class VoiceRecognition : MonoBehaviour
 {
     public ParticleSystem pSystem;
-    public Text sText;
+    //public Text sText;
     public float cRed;
     public float cGreen;
     public float cBlue;
@@ -20,6 +20,7 @@ public class VoiceRecognition : MonoBehaviour
 
     public void OnEnable()
     {
+		pSystem.Stop();
         actions.Add("kedavra", AvadaKedavra);
         actions.Add("crucio", Crucio);
         actions.Add("aquamenti", Aguamenti);
@@ -32,7 +33,8 @@ public class VoiceRecognition : MonoBehaviour
 
     private void recognizedSpeech(PhraseRecognizedEventArgs speech)
     {
-        sText.text = speech.text;
+        //sText.text = speech.text;
+        Debug.Log(speech.text);
         actions[speech.text].Invoke();
     }
 

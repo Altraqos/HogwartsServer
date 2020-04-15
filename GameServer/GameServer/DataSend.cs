@@ -9,6 +9,9 @@ namespace GameServer
         SPlayerPos,
         SPlayerDestroy,
         SPlayerName,
+        SEnemyState,
+        SAIPos,
+        SChat,
     }
 
     static class DataSend
@@ -17,9 +20,20 @@ namespace GameServer
         {
             ByteBuffer buffer = new ByteBuffer();
             buffer.WriteInterger((int)ServerPackets.SWelcomeMessage);
-            buffer.WriteString("Hello! Welcome to the server!");
+            buffer.WriteString(InitializeServerData.loginMemo);
             buffer.WriteInterger(connectionID);
             ClientManager.SendDataTo(connectionID, buffer.ToArray());
+            buffer.Dispose();
+        }
+        public static void SendChat(int connectionID, string message)
+        {
+            ByteBuffer buffer = new ByteBuffer();
+            buffer.WriteInterger((int)ServerPackets.SChat);
+            buffer.WriteString(message);
+            foreach (var item in ClientManager.client)
+            {
+                ClientManager.SendDataTo(item.Key, buffer.ToArray());
+            }
             buffer.Dispose();
         }
 
@@ -37,13 +51,12 @@ namespace GameServer
             buffer.Dispose();
         }
 
-        public static void SendInstantiatePlayer(int index, int connectionID, string playerName, int charVal)
+        public static void SendInstantiatePlayer(int index, int connectionID, string playerName)
         {
             ByteBuffer buffer = new ByteBuffer();
             buffer.WriteInterger((int)ServerPackets.SPlayerData);
             buffer.WriteInterger(index);
             buffer.WriteString(playerName);
-            buffer.WriteInterger(charVal);
             if (index != connectionID)
                 ClientManager.SendDataTo(connectionID, buffer.ToArray());
             buffer.Dispose();
@@ -57,12 +70,29 @@ namespace GameServer
             ClientManager.SendDataTo(connectionID, buffer.ToArray());
             buffer.Dispose();
         }
+        public static void SendAIPos(int connectionID, string AIPos)
+        {
+            ByteBuffer buffer = new ByteBuffer();
+            buffer.WriteInterger((int)ServerPackets.SAIPos);
+            buffer.WriteString(AIPos);
+            ClientManager.SendDataTo(connectionID, buffer.ToArray());
+            buffer.Dispose();
+        }
+        public static void SendEnemyState(int connectionID, string enemyState)
+        {
+            ByteBuffer buffer = new ByteBuffer();
+            buffer.WriteInterger((int)ServerPackets.SEnemyState);
+            buffer.WriteString(enemyState);
+            ClientManager.SendDataTo(connectionID, buffer.ToArray());
+            buffer.Dispose();
+        }
 
-        public static void SendPlayerName(int connectionID, string playerName)
+        public static void SendPlayerName(int connectionID, string playerName, bool isHost)
         {
             ByteBuffer buffer = new ByteBuffer();
             buffer.WriteInterger((int)ServerPackets.SPlayerName);
             buffer.WriteString(connectionID + "#" + playerName);
+            buffer.WriteBool(isHost);
             ClientManager.SendDataTo(connectionID, buffer.ToArray());
             buffer.Dispose();
         }

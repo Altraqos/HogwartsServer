@@ -6,13 +6,12 @@ namespace GameServer
 {
     static class ServerTCP
     {
-        static TcpListener serverSocket = new TcpListener(IPAddress.Any, 28015);
+        static TcpListener serverSocket = new TcpListener(IPAddress.Parse(InitializeServerData.serverIP), InitializeServerData.serverPort);
 
         public static void InitializeNetwork()
         {
             //Start the server up, and start to initialize the server packets, then allow the server to begin accepting clients
             WriteToConsole.SlowlyWriteServer("Initializing Packets...", ConsoleColor.Blue);
-            //WriteToLog.WriteDataToLog("Initializing Packets...");
             ServerHandleData.InitializePackets();
             serverSocket.Start();
             serverSocket.BeginAcceptTcpClient(new AsyncCallback(OnClientConnect), null);

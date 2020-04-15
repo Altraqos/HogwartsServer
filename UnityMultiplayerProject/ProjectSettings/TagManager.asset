@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayArea
+  - FxTemporaire
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - World
+  - Walkable
   - 
   - 
   - 

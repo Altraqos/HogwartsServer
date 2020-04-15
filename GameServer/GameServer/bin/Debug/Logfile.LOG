@@ -1,0 +1,81 @@
+{ 11:14 } - *** Started the server on: { 22/01/2020 11:14:35 }. ***
+{ 11:14 } - Looking for server config file.
+{ 11:14 } - Found server config file.
+{ 11:14 } - Server Stats
+{ 11:14 } - Current EXP Rate: *1*.
+{ 11:14 } - Current Bonus EXP: *1*.
+{ 11:14 } - Maximum Players Online: *30*.
+{ 11:14 } - Current Max Player Level: *100*.
+{ 11:14 } - Current Maximun Group Size: *5*.
+{ 11:14 } - Server Name: *Server Name*.
+{ 11:14 } - Server Message Of The Day: *Server Message Of The Day*.
+{ 11:14 } - Login Memo: *Login Text*.
+{ 11:14 } - Server IP adress: *0.0.0.0*.
+{ 11:14 } - Login server port: *28015*.
+{ 11:14 } - This server will use ip: *0.0.0.0*:*28015*.
+{ 11:14 } - Starting the server up.
+{ 11:14 } - Initializing Packets...
+{ 11:14 } - Server has been started.
+{ 11:14 } - Incoming connection from *192.168.148.121:54531*.
+{ 11:14 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54531* has been terminated.
+{ 11:14 } - Connection from ** - *192.168.148.121:54531* has been terminated.
+{ 11:19 } - Incoming connection from *192.168.148.121:54571*.
+{ 11:19 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54571* has been terminated.
+{ 11:19 } - Connection from ** - *192.168.148.121:54571* has been terminated.
+{ 11:25 } - Incoming connection from *192.168.148.121:54668*.
+{ 11:25 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54668* has been terminated.
+{ 11:25 } - Connection from ** - *192.168.148.121:54668* has been terminated.
+{ 11:26 } - Incoming connection from *192.168.148.121:54687*.
+{ 11:26 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54687* has been terminated.
+{ 11:26 } - Connection from ** - *192.168.148.121:54687* has been terminated.
+{ 11:29 } - Incoming connection from *192.168.148.121:54743*.
+{ 11:29 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54743* has been terminated.
+{ 11:29 } - Connection from ** - *192.168.148.121:54743* has been terminated.
+{ 11:30 } - Incoming connection from *192.168.148.121:54758*.
+{ 11:30 } - ID: *54758* | Name: *aaaa* | Character Value: *1*
+{ 11:30 } - Messsage from client: *aaaa has succesfully connected to server!*
+{ 11:32 } - Connection from *aaaa* - *192.168.148.121:54758* has been terminated.
+{ 11:47 } - Incoming connection from *192.168.148.121:54916*.
+{ 11:47 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54916* has been terminated.
+{ 11:47 } - Connection from ** - *192.168.148.121:54916* has been terminated.
+{ 11:48 } - Incoming connection from *192.168.148.121:54926*.
+{ 11:48 } - ERROR: {*System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GameServer.ServerHandleData.HandleData(Int32 connectionID, Byte[] data) in D:\ServerSetup\GameServer\GameServer\ServerHandleData.cs:line 22
+   at GameServer.Client.OnReceiveData(IAsyncResult result) in D:\ServerSetup\GameServer\GameServer\Client.cs:line 47*} Connection from ** - *192.168.148.121:54926* has been terminated.
+{ 11:48 } - Connection from ** - *192.168.148.121:54926* has been terminated.
+{ 14:08 } - Incoming connection from *192.168.148.121:64232*.
+{ 14:08 } - ID: *64232* | Name: *aaaa* | Character Value: *1*
+{ 14:08 } - Messsage from client: *aaaa has succesfully connected to server!*
+{ 14:10 } - Connection from *aaaa* - *192.168.148.121:64232* has been terminated.
+{ 09:39 } - *** Started the server on: { 23/01/2020 09:39:00 }. ***
+{ 10:00 } - *** Started the server on: { 23/01/2020 10:00:23 }. ***
+{ 10:04 } - *** Started the server on: { 23/01/2020 10:04:28 }. ***
+{ 10:05 } - *** Started the server on: { 23/01/2020 10:05:21 }. ***
+{ 10:07 } - *** Started the server on: { 23/01/2020 10:07:56 }. ***
+{ 10:20 } - *** Started the server on: { 23/01/2020 10:20:06 }. ***
+{ 10:34 } - *** Started the server on: { 23/01/2020 10:34:27 }. ***
+{ 11:27 } - *** Started the server on: { 23/01/2020 11:27:44 }. ***
+{ 11:29 } - *** Started the server on: { 23/01/2020 11:29:46 }. ***
+{ 11:46 } - *** Started the server on: { 23/01/2020 11:46:06 }. ***
+{ 12:05 } - *** Started the server on: { 23/01/2020 12:05:19 }. ***
+{ 12:05 } - *** Started the server on: { 23/01/2020 12:05:46 }. ***
+{ 12:58 } - *** Started the server on: { 27/01/2020 12:58:24 }. ***

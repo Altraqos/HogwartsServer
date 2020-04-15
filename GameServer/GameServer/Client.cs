@@ -12,6 +12,9 @@ namespace GameServer
         public NetworkStream stream;
         private byte[] recBuffer;
         public ByteBuffer buffer;
+        public int playerCount;
+
+        public bool isHost = false;
 
         public void Start()
         {
@@ -24,8 +27,7 @@ namespace GameServer
             recBuffer = new byte[4096];
             stream.BeginRead(recBuffer, 0, socket.ReceiveBufferSize, OnReceiveData, null);
             //And when the client is connected write the incoming connection from the clients IPAdress
-            Console.WriteLine("Incoming connection from '" + socket.Client.RemoteEndPoint.ToString() + "'.");
-            //WriteToLog.WriteDataToLog("Incoming connection from '" + socket.Client.RemoteEndPoint.ToString() + "'.");
+            WriteToConsole.writeVarData("Incoming connection from *" + socket.Client.RemoteEndPoint.ToString(), ConsoleColor.Magenta);
         }
 
         private void OnReceiveData(IAsyncResult result)
@@ -50,8 +52,8 @@ namespace GameServer
             //If the server failes to read out the incoming data close the connection to the server.
             catch (Exception ex)
             {
-                WriteToConsole.SlowlyWriteErrorVarData("ERROR: {" + ex + "} Connection from '" + socket.Client.RemoteEndPoint + "' has been terminated.");
-                //WriteToLog.WriteDataToLog("Connection from '" + socket.Client.RemoteEndPoint + "' has been terminated.");
+                string[] playerNameHolder = playerName.Split('#');
+                WriteToConsole.SlowlyWriteErrorVarData("ERROR: {*" + ex + "*} Connection from *" + playerNameHolder[0] + "* - *" + socket.Client.RemoteEndPoint + "* has been terminated.");
                 CloseConnection();
                 return;
             }
@@ -59,12 +61,15 @@ namespace GameServer
 
         private void CloseConnection()
         {
+            string[] playerNameHolder = playerName.Split('#');
+            DataSend.SendChat(connectionID, playerNameHolder[0] + " has disconnected.");
             DataSend.SendDestroyPlayer(connectionID);
             //Remove the client from the dictonary to prevent crashes to occur when you try to reconnect
             ClientManager.client.Remove(connectionID);
+            ClientManager.clientValue.Remove(connectionID);
             //Close the socket and disconnect the client from the server
-            WriteToConsole.SlowlyWriteErrorVarData("Connection from '" + socket.Client.RemoteEndPoint + "' has been terminated.");
-            //WriteToLog.WriteDataToLog("Connection from '" + socket.Client.RemoteEndPoint + "' has been terminated.");
+
+            WriteToConsole.SlowlyWriteErrorVarData("Connection from *" + playerNameHolder[0] + "* - *" + socket.Client.RemoteEndPoint + "* has been terminated.");
             socket.Close();
         }
     }
