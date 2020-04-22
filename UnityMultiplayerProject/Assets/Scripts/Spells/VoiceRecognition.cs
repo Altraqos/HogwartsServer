@@ -9,7 +9,6 @@ using UnityEngine.Windows.Speech;
 public class VoiceRecognition : MonoBehaviour
 {
     public ParticleSystem pSystem;
-    //public Text sText;
     public float cRed;
     public float cGreen;
     public float cBlue;
@@ -18,12 +17,12 @@ public class VoiceRecognition : MonoBehaviour
     private KeywordRecognizer kRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
-    public void OnEnable()
+    public void Start()
     {
 		pSystem.Stop();
         actions.Add("kedavra", AvadaKedavra);
         actions.Add("crucio", Crucio);
-        actions.Add("aquamenti", Aguamenti);
+        actions.Add("aguamenti", Aguamenti);
         actions.Add("alohomora", Alohomora);
         actions.Add("reducto", Reducto);
         kRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
@@ -33,7 +32,6 @@ public class VoiceRecognition : MonoBehaviour
 
     private void recognizedSpeech(PhraseRecognizedEventArgs speech)
     {
-        //sText.text = speech.text;
         Debug.Log(speech.text);
         actions[speech.text].Invoke();
     }

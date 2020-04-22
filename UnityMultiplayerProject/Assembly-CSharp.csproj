@@ -86,11 +86,13 @@
     <Compile Include="Assets\Scripts\TCPClient\MoveAIOnline.cs" />
     <Compile Include="Assets\Scripts\TCPClient\MoveOnlinePlayer.cs" />
     <Compile Include="Assets\Scripts\TCPClient\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\TentScripts\TentCamera.cs" />
     <Compile Include="Assets\Scripts\UI\Billboard.cs" />
     <Compile Include="Assets\Scripts\UI\Chat.cs" />
     <Compile Include="Assets\Scripts\WayPoints.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\DownloadedAssets\Shaders\ScreenCutoutShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />

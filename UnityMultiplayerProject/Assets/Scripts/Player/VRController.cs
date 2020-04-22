@@ -27,7 +27,7 @@ public class VRController : MonoBehaviour
     private float speed = 0;
 
     private CharacterController cController;
-    private Transform cRigPos;
+    
     private Transform headPos;
 
 
@@ -39,7 +39,6 @@ public class VRController : MonoBehaviour
 
     void Start()
     {
-        cRigPos = SteamVR_Render.Top().origin;
         headPos = SteamVR_Render.Top().head;
     }
 
@@ -48,13 +47,11 @@ public class VRController : MonoBehaviour
         if (isLeft)
         {
             wandObject.transform.position = leftHand.position;
-            //wandObject.transform.rotation = leftHand.rotation;
             wandObject.transform.parent = leftHand;
         }
         if (!isLeft)
         {
             wandObject.transform.position = rightHand.position;
-            //wandObject.transform.rotation = rightHand.rotation;
             wandObject.transform.parent = rightHand;
         }
     }
@@ -74,7 +71,6 @@ public class VRController : MonoBehaviour
             if (gripPress.GetStateDown(SteamVR_Input_Sources.LeftHand))
             {
                 isActive = !isActive;
-                Debug.Log("Pressed Left grip");
                 wandObject.SetActive(isActive);
             }
         }
@@ -83,7 +79,6 @@ public class VRController : MonoBehaviour
             if (gripPress.GetStateDown(SteamVR_Input_Sources.RightHand))
             { 
                 isActive = !isActive;
-                Debug.Log("Pressed Right grip");
                 wandObject.SetActive(isActive);
             }
         }
@@ -114,7 +109,6 @@ public class VRController : MonoBehaviour
             speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
             movement += orientation * (speed * Vector3.forward);
         }
-
         if (!leftHanded)
         {
             if (moveValue.GetAxis(SteamVR_Input_Sources.RightHand) == new Vector2(0, 0))
@@ -124,9 +118,7 @@ public class VRController : MonoBehaviour
             speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
             movement += orientation * (speed * Vector3.forward);
         }
-
         movement.y -= gravity * Time.deltaTime;
-
         cController.Move(movement * Time.deltaTime);
     }
 
@@ -134,7 +126,6 @@ public class VRController : MonoBehaviour
     {
         float rotation = Mathf.Atan2(moveValue.axis.x, moveValue.axis.y);
         rotation *= Mathf.Rad2Deg;
-
         Vector3 orientationEuler = new Vector3(0, headPos.eulerAngles.y + rotation, 0);
         return Quaternion.Euler(orientationEuler);
     }
@@ -142,8 +133,6 @@ public class VRController : MonoBehaviour
     public void snapRotation()
     {
         float snapVal = 0;
-
-
         if (leftHanded)
         {
             if (rotatePressLeft.GetStateDown(SteamVR_Input_Sources.LeftHand))
